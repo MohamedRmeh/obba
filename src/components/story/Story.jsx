@@ -1,28 +1,34 @@
-'use client';
-import React, { useState } from 'react';
+"use client";
+import React, { useState } from "react";
 
 const Story = () => {
   // State for stories
   const [stories, setStories] = useState([
     {
       id: 1,
-      image: '/images/photo_5774136002925937798_y.jpg',
-      title: 'طلابنا المميزون لهذا الاسبوع',
-      date: '2024-10-08',
+      image: "/images/photo_5774136002925937798_y.jpg",
+      title: "طلابنا المميزون لهذا الاسبوع",
+      date: "2024-10-08",
     },
     {
       id: 2,
-      image: '/images/photo_5774136002925937804_y.jpg',
-      title: 'طلابنا المميزون لهذا الاسبوع',
-      date: '2024-10-07',
+      image: "/images/photo_5774136002925937804_y.jpg",
+      title: "طلابنا المميزون لهذا الاسبوع",
+      date: "2024-10-07",
+    },
+    {
+      id: 3,
+      image: "/images/photo_5774136002925937801_y.jpg",
+      title: "طلابنا المميزون لهذا الاسبوع",
+      date: "2024-10-07",
     },
   ]);
 
   // State for new story
   const [newStory, setNewStory] = useState({
-    image: '',
-    title: '',
-    date: '',
+    image: "",
+    title: "",
+    date: "",
   });
 
   // Add a new story
@@ -30,7 +36,7 @@ const Story = () => {
     e.preventDefault(); // Prevent form submission default behavior
     const newId = stories.length + 1;
     setStories([...stories, { ...newStory, id: newId }]);
-    setNewStory({ image: '', title: '', date: '' });
+    setNewStory({ image: "", title: "", date: "" });
   };
 
   // Handle image upload and set image URL
@@ -60,10 +66,10 @@ const Story = () => {
   };
 
   return (
-    <div className="max-w-4xl mx-auto p-4 mt-5 mb-10">
+    <div className="max-w-4xl mx-auto p-4 sm:mt-5 mb-10">
       <div className="mb-8">
         <h2 className="text-xl mb-4 text-[#8b0000]">اضافة طالب مميز</h2>
-        <form onSubmit={handleAddStory} className="space-y-4 w-[70%]">
+        <form onSubmit={handleAddStory} className="space-y-4 ">
           <input
             type="text"
             placeholder="عنوان القصة"
@@ -108,7 +114,9 @@ const Story = () => {
                     d="M7 16l-4-4m0 0l4-4m-4 4h18m-6 4l4-4m0 0l-4-4"
                   />
                 </svg>
-                <p className="mt-2 text-sm text-gray-500">اضغط هنا لرفع صورة الطالب</p>
+                <p className="mt-2 text-sm text-gray-500">
+                  اضغط هنا لرفع صورة الطالب
+                </p>
               </>
             )}
           </label>
@@ -138,7 +146,7 @@ const Story = () => {
                 onClick={() =>
                   handleEditStory(story.id, {
                     ...story,
-                    title: prompt('Edit Title', story.title) || story.title,
+                    title: prompt("Edit Title", story.title) || story.title,
                   })
                 }
                 className="bg-black text-white px-2 py-1 rounded"
